@@ -1,0 +1,18 @@
+/*@media charset='utf-8';*/
+.wrapper{
+	width: 800px;
+	height: 400px;
+	background: #ccc;
+	margin: 50px auto;
+	overflow: hidden;
+}
+.wrapper .inner{
+	width: 810px;	
+}
+.wrapper .content{
+	width: 260px;
+	height: 260px;
+	background-color: #369;
+	float: left;
+	margin-right: 10px;
+}

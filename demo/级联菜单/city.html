@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>(●—●)</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/myls.css">
+    <script type="text/javascript" src="js/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jquery.cxselect.js" charset="utf-8"></script>
+    <style type="text/css"></style>
+</head>
+<body>
+    <ul id="element_id" class="myls-input creatNewAddr">
+        <li class="cl">
+            <label>所在地区</label>
+            <div class="input-warp">
+                <div class="handy-dropdown hd-width03" onclick="$(this).toggleClass('handy-dropdown-unfold');">
+                    <div class="handy-inputwarp">
+                        <select class="handy-input level0">请选择</select><i class="handy-icon"></i>
+                    </div>
+                    <div class="handy-dropdowncen">
+                    </div>
+                </div>
+                <div class="handy-dropdown hd-width03" onclick="$(this).toggleClass('handy-dropdown-unfold');">
+                    <div class="handy-inputwarp">
+                        <select class="handy-input level1">请选择</select><i class="handy-icon"></i>
+                    </div>
+                    <div class="handy-dropdowncen">
+                    </div>
+                </div>
+                <div class="handy-dropdown hd-width03" onclick="$(this).toggleClass('handy-dropdown-unfold');">
+                    <div class="handy-inputwarp">
+                        <select class="handy-input level2">请选择</select><i class="handy-icon"></i>
+                    </div>
+                    <div class="handy-dropdowncen">
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+<script type="text/javaScript">
+$(function() {
+    $('#element_id').cxSelect({
+        url: 'js/cityData.min.json', // 如果服务器不支持 .json 类型文件，请将文件改为 .js 文件
+        selects: ['level0', 'level1', 'level2'], // 数组格式，请注意顺序
+        required: false,
+        // firstTitle: '点我',
+        // firstValue: 'where',
+        nodata: 'hidden'
+    });
+});
+</script>
+</html>

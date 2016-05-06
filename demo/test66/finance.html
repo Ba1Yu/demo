@@ -1,0 +1,211 @@
+
+<iframe src="http://www.91bee.com/91bee/hqzx/index.xhtml" width="800px" height="600px">
+
+<!DOCTYPE HTML >
+<html>
+  <head>
+	<title>首页</title>
+	<link type="text/css" media="all" rel="stylesheet" href="/91bee/hqzx/css/unit.css" />
+	<link type="text/css" media="all" rel="stylesheet" href="/91bee/hqzx/css/newStyle.css" />
+<!-- common css -->
+<link type="text/css" media="all" rel="stylesheet" href="/91bee/hqzx/css/base.css" />
+<link type="text/css" media="all" rel="stylesheet" href="/91bee/hqzx/css/common.css" />
+<link type="text/css" media="all" rel="stylesheet" href="/91bee/hqzx/css/stock.css" />
+<link type="text/css" media="all" rel="stylesheet" href="/91bee/hqzx/css/jquery-ui.min.css" />
+
+
+<!-- common js -->
+<script type="text/javascript" src="/91bee/hqzx/js/jquery.js"></script>
+<script type="text/javascript" src="/91bee/hqzx/js/jquery.tools.js"></script> 
+<script type="text/javascript" src="/91bee/hqzx/js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="/91bee/hqzx/js/common.js"></script>
+<script type="text/javascript" src="/91bee/hqzx/js/datastore.all.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+var rootPath = "/91bee";
+var currCode = "SH600600";
+var yundzhToken = "a1c754df31bd48bf89201adad9203ca8";
+if(!currCode || currCode == "null") currCode = "SH600000";
+
+//var url = "ws://10.15.144.101:80/ws";
+var url = "ws://v2.yundzh.com/ws";
+DataStore.address = url;
+DataStore.token = yundzhToken;
+</script>
+
+	<script type="text/javascript" src="/91bee/hqzx/js/highstock.js"></script>
+    <script type="text/javascript" src="/91bee/hqzx/js/chart.js"></script>
+    <script type="text/javascript" src="/91bee/hqzx/js/chartDataProvider.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		
+		//分时K线
+	    (function($){
+	    	var dataProvider;
+	    	var kline = $(".kline-chart");
+		    $("#scul li").click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				drawKLine($(this).attr("sc"));
+			});
+		    
+			function drawKLine(sc) {
+				//if (dataProvider) dataProvider.close();
+				dataProvider = new ChartDataProvider(sc);
+	            var chart = new Chart($("#kline_"+sc), {
+	                dataProvider: dataProvider,
+	                chart: { width: 350, height: 200 },
+	                types: ["min"],
+	                mini: true
+	            });
+			}
+			
+			$("#scul li:eq(0)").trigger("click");
+	    	
+	    })(jQuery);
+		
+	  	//键盘宝
+	    (function($){
+	    	kbspirit($("#searchtext"), function(stockCode) {
+	    		top.window.open ( rootPath+"/hqzx/gghq_ggsy.xhtml?stockCode=" + stockCode);
+	    	});
+	    })(jQuery);
+		
+	  	//处理自选股
+		(function($){
+			var myCode = [], resultCode = 1;
+			var mystockDynaDataStore = new DataStore({ //动态行情数据源 专门处理 自选股
+			    serviceUrl: "/stkdata"
+			});
+			
+			$.ajax({
+				type: "get",
+				url: "/91bee/myStock.do",
+				dataType: "jsonp",
+				jsonpCallback: "jsonpCallback",
+				success: function(result) {
+					// Object { resultMsg="自选股查询成功",  data=[2],  resultCode=0}
+					resultCode = result.resultCode;
+					if (result.resultCode == 0) {
+						var arr = result.data;
+						for(var o in arr) {
+							myCode.push(arr[o].STOCKCODE);
+						}
+					}
+				},
+				complete: function() {
+					if (resultCode == 0 && myCode.length>0) {
+						var arr = [];
+						for(var x in myCode){
+							arr.push("<tr id='mystock_"+myCode[x]+"'>");
+							arr.push("<td class='obj'></td><td class='ZhongWenJianCheng'></td><td class='ZuiXinJia'></td><td class='ZhangFu'></td>");
+							arr.push("<td class='ZhenFu'></td></tr>");
+						}
+						$("#mystockBody").html(arr.join(""));
+						
+						mystockDynaDataStoreSubscribe(mystockDynaDataStore, myCode);
+					}
+				}
+			});
+			
+			function mystockDynaDataStoreSubscribe(dynaDataStore, stkCode) {
+				dynaDataStore.subscribe({
+					obj: stkCode,
+					field: "JiaoYiDaiMa,ZhongWenJianCheng,ZuiXinJia,ZhangFu,ZhenFu"
+				}, {}, function(data) {
+					if (data instanceof Error) {
+						setTimeout(function(){
+							mystockDynaDataStoreSubscribe(dynaDataStore, stkCode);
+						}, 3000);
+					} else {
+						for (x in data) {
+							var dynaData = data[x];
+							if (dynaData) {	
+								valMyStockDynaData(dynaData);
+							}
+						}
+					}
+				});
+			}   
+
+			//根据推送的动态行情数据填充响应的元素
+			function valMyStockDynaData(d) {
+				var mystock_stk = $("#mystock_"+d.Obj);
+				//处理自选
+				if (mystock_stk.length>0) {
+					mystock_stk.find(".obj").html(d.Obj).end()
+					.find(".ZhongWenJianCheng").html(d.ZhongWenJianCheng).css("cursor","pointer").bind("click",function(){
+						window.open ( rootPath+"/hqzx/gghq_ggsy.xhtml?stockCode=" + d.Obj);
+					}).end()
+					.find(".ZhongWenJianCheng").html(d.ZhongWenJianCheng).end()
+					.find(".ZuiXinJia").html(d.ZuiXinJia).addClass(d.ZhangFu>0?"red":"green").end()
+					.find(".ZhangFu").html(d.ZhangFu+"%").addClass(d.ZhangFu>0?"red":"green").end()
+					.find(".ZhenFu").html(d.ZhenFu+"%").end()
+					;
+					$($("#mystockBody tr")[0]).find("td").css("paddingTop","10px");
+				}
+			}
+		})(jQuery);
+		
+	});
+	
+	</script>
+  </head>
+  
+  <body>
+    <div class="newStyle" style="width:380px;height:560px;overflow:hidden;">
+        <div class="stock-wrapper" style="padding: 0px 0px 0px 0px;">
+            <div class="stock-index">
+                <ul id="scul" class="tabs tab-style clearfix">
+                    <li sc="SH000001"><a href="javascript:void(0);">上证指数</a></li>
+                    <li sc="SZ399001"><a href="javascript:void(0);">深证指数</a></li>
+                    <li sc="SH000300"><a href="javascript:void(0);">沪深300</a></li>
+                    <li sc="SZ399005"><a href="javascript:void(0);">中小板</a></li>
+                    <li sc="SZ399006"><a href="javascript:void(0);">创业板</a></li>
+                </ul>
+                
+                <div class="panel" style="display:block">
+                    <div id="kline_SH000001"></div>
+                </div>
+                <div class="panel">
+                    <div id="kline_SZ399001"></div>
+                </div>
+                <div class="panel">
+                    <div id="kline_SH000300"></div>
+                </div>
+                <div class="panel">
+                    <div id="kline_SZ399005"></div>
+                </div>
+                <div class="panel">
+                    <div id="kline_SZ399006"></div>
+                </div>
+            </div>
+            
+            <div class="stock-quick clearfix">
+                <div class=""><a target="_blank" href="/91bee/html/showlive.html">有奖互动中大奖</a></div>
+                <div style="margin-right:0;"><a target="_blank" href="/91bee/hqzx/hqsy.xhtml">设置您的自选股</a></div>
+            </div>
+            <div class="mystock">
+                <div class="mystock-top">
+                    <h3>我的自选股</h3>
+                    <div class="mystock-search">
+                        <input type="text" accesskey="s" id="searchtext" class="searchtext" name="keywords" autocomplete="off" value="搜索个股" />
+                    </div>
+                </div>
+                <div class="mystock-content">
+                    <table width="100%" class="table-style">
+                        <col width=""><col width=""><col width=""><col width=""><col width="">
+                        <thead>
+                            <tr><th>代码</th><th>名称</th><th>最新价</th><th>涨跌幅</th><th>振幅</th></tr>
+                        </thead>
+                        <tbody id="mystockBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+</iframe>

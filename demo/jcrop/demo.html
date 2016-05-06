@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Jcrop-v0.9.12</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css"/>
+	<style>
+		img{
+			width: 800px;
+			height: 450px;
+		}
+		form{
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<img id="demo" src="demos/demo_files/sago.jpg">
+	<form id="coords" class="coords" onsubmit="return false;" action="http://example.com/post.php">
+		<div class="inline-labels">
+			<label>X1:<input type="text" size="4" id="x1" name="x1" /></label>
+			<label>Y1:<input type="text" size="4" id="y1" name="y1" /></label>
+			<label>X2:<input type="text" size="4" id="x2" name="x2" /></label>
+			<label>Y2:<input type="text" size="4" id="y2" name="y2" /></label>
+			<label>W:<input type="text" size="4" id="w" name="w" /></label>
+			<label>H:<input type="text" size="4" id="h" name="h" /></label>
+		</div>
+	</form>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.Jcrop.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var jcrop_api;
+			$('#demo').Jcrop({
+				onChange: showCoords,
+                onSelect: showCoords,
+                aspectRatio: 16/9,
+                keySupport: true,
+                animationDelay: 200,
+                onRelease: clearCoords
+			},function() {
+                jcrop_api = this;
+            });
+
+			$('#coords').on('change', 'input', function(e) {
+				var x1 = $('#x1').val(),
+					x2 = $('#x2').val(),
+					y1 = $('#y1').val(),
+					y2 = $('#y2').val();
+				jcrop_api.setSelect([x1, y1, x2, y2]);
+			});
+			function showCoords(c) {
+				console.log(c)
+                $('#x1').val(c.x);
+                $('#y1').val(c.y);
+                $('#x2').val(c.x2);
+                $('#y2').val(c.y2);
+                $('#w').val(c.w);
+                $('#h').val(c.h);
+            }
+            function clearCoords() {
+                $('#coords input').val('');
+            }
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>(●—●)</title>
+    <link rel="stylesheet" href="reset.css">
+    <script type="text/javascript" src="js/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/highcharts.js" charset="utf-8"></script>
+    <style type="text/css"></style>
+</head>
+<body>
+    <div id="container" style="width:800px;height:400px"></div>
+    <script type="text/javaScript">
+        $(function () {
+            $('#container').highcharts({                        //图表展示容器，与div的id保持一致
+                chart: {
+                    type: 'line'                                //指定图表的类型，默认是折线图（line）
+                },
+                title: {                                        //指定图表标题
+                    useHTML: true,
+                    text: 'Rain66 test highcharts for <a href="http://www.letv.com" target="_blank">letv</a>'     
+                },
+                subtitle: {
+                    text: 'email:baiyu3@letv.com',              //指定图表副标题
+                    style: {
+                        color: '#3E576F',
+                        fontSize: '12px'
+                    }
+                },
+                xAxis: {
+                    categories: ['03/15','06/15','09/15','12/15'],       //指定x轴分组
+                    tickmarkPlacement: 'on'                     //刻度线对齐方式，有between和on可选，默认是between=
+                },
+                yAxis: {
+                    title: {
+                        text: ''                                //指定y轴的标题
+                    },
+                    labels: {
+                        formatter: function() {
+                            if (this.value <= 100) {
+                                return "略屌(" + this.value + ")";
+                            } else if (this.value > 100 && this.value <= 200) {
+                                return "真屌(" + this.value + ")";
+                            } else if (this.value > 200 && this.value <= 300) {
+                                return "好屌(" + this.value + ")";
+                            } else if (this.value > 400 && this.value <= 500) {
+                                return "太屌了(" + this.value + ")";
+                            } else {
+                                return "屌炸天(" + this.value + ")";
+                            }
+                        }
+                    }
+                },
+                series: [{                                      //指定数据列
+                    name: '收入',                               //数据列名
+                    data: [116,226,366,266],                    //数据
+                    lineWidth: 2,
+                    cursor: 'hand',
+                    zones: [{
+                            value: 200,
+                            color: '#f7a35c',
+                            dashStyle: 'dot'
+                        }, {
+                            value: 300,
+                            color: '#7cb5ec'
+                        }, {
+                            color: '#90ed7d'
+                        }]
+                },{
+                    name: '支出',                               //数据列名
+                    data: [16,126,266,166],                    //数据
+                    lineWidth: 2,
+                    cursor: 'hand',
+                    zones: [{
+                            value: 200,
+                            color: '#f7a35c',
+                            dashStyle: 'dot'
+                        }, {
+                            value: 300,
+                            color: '#7cb5ec'
+                        }, {
+                            color: '#90ed7d'
+                        }]
+                }],
+                credits:{
+                    enabled: false                              //是否显示版权
+                }
+            });
+            // $('.highcharts-legend-item')[0].onclick = function(){ return; };
+            // $('.highcharts-legend-item')[1].onclick = function(){ return; };
+        });
+    </script>
+</body>
+</html>

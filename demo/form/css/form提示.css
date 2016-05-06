@@ -1,0 +1,82 @@
+@charset 'utf-8';
+/* 页面整体布局 */
+		.wrapper{
+			width:604px;
+			height:319px;
+			margin:0 auto;
+			padding:242px 0 0 188px;
+			background:url('../images/form_bac.png') 0 0 no-repeat;
+		}
+		/* 内容部分布局 */
+		.main{
+			position:relative;
+			width:318px;
+			height:164px;
+			border-radius:50px;
+			padding:20px;
+		}
+		.name,.pass{
+			width:320px;
+			height:38px;
+			margin-top:10px;
+			float:left;
+			border-radius:7px;
+			background:#d7d8da;
+		}
+		.name_bac{
+			width:45px;
+			height:38px;
+			float:left;
+			background:url('../images/name_bac.gif') 0 0 no-repeat;
+		}
+		.pass_bac{
+			width:45px;
+			height:38px;
+			float:left;
+			background:url('../images/pass_bac.gif') 0 0 no-repeat;
+		}
+		.label{
+			width:40px;
+			float:left;
+			line-height:38px;
+		}
+		input{
+			margin-top:6px;
+			width:150px;
+			height:25px;
+			outline:none;
+		}
+		p{	
+			width:75px;
+			height:38px;
+			float:right;
+			line-height:38px;
+		}
+		.btn{
+			width:320px;
+			height:47px;
+			outline:none;
+			border-radius:7px;
+			background:url('../images/form_btn.jpg') 0 0 no-repeat;
+		}
+		/* 联想词部分布局 */
+		.thinkcon{
+			position:absolute;
+			top:68px;
+			left:110px;
+			width:150px;
+			overflow:hidden;
+			background:#d8d8d8;
+			border-radius:5px;
+		}
+		.thinkcon p{
+			width:150px;
+			height:20px;
+			line-height:20px;
+			overflow:hidden; 
+			text-overflow:ellipsis;
+			white-space:nowrap;
+		}
+		.thinkcon p:hover{
+			background:#9a9a9a;
+		}

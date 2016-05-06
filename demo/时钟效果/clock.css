@@ -1,0 +1,29 @@
+@media charset = 'UTF-8';
+*{
+	margin: 0;
+	padding: 0;
+}
+.clock_bg{
+	width: 126px;
+	height: 126px;
+	border: 1px solid #ccc;
+	margin: 50px auto;
+	background: url('images/clockBg.png') 0 0 no-repeat;
+	position: relative;
+}
+.clock_bg li{
+	width: 6px;
+	height: 126px;
+	position: absolute;
+	left: 60px;
+	top: 0;
+}
+.hour{
+	background: url('images/hourhand.png') 0 0 no-repeat;
+}
+.minute{
+	background: url('images/minhand.png') 0 0 no-repeat;
+}
+.sec{
+	background: url('images/sechand.png') 0 0 no-repeat;
+}

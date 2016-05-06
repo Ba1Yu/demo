@@ -1,0 +1,11 @@
+.yf_calendar{background:#fff;width:210px; border:1px solid #ccc; position:absolute; top:0; left:0; display:none;}
+.yf_calendar a{position:absolute; top:3px; text-decoration: none;}
+.yf_calendar .left{left:3px;}
+.yf_calendar .right{right:3px;}
+.yf_calendar h3{ height:30px; text-align: center; line-height: 30px;border-bottom: 1px solid #ccc;}
+.yf_calendar ol{border-bottom:1px solid #ccc;}
+.yf_calendar ol,.yf_calendar ul{overflow: hidden;}
+.yf_calendar ol li,.yf_calendar ul li{float:left; width:30px; height:30px; text-align: center; line-height: 30px; }
+.yf_calendar li.weekEnd{color:#f90;}
+.yf_calendar li.today{color:#f00; background:#ccc;}
+.yf_calendar li.past{color:gray;}

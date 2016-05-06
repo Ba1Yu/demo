@@ -1,0 +1,400 @@
+	@charset 'utf-8';
+	/* 通用样式 */
+	.wrapper{
+		height:600px;
+		background:url('../images/backpic.jpg') 0 0 no-repeat;
+	}
+	/* head导航部分 */
+	.nav{
+		height:28px;
+	}
+	.nav li{
+		height:28px;
+		border-radius:14px;
+		float:left;
+		cursor:hand;
+		cursor:pointer;
+	}
+	.logo{
+		float:right;
+		cursor:hand;
+		cursor:pointer;
+	}
+	.homepage{
+		background:url('../images/homepage.gif') 0 0 no-repeat;
+	}
+	.blog{
+		background:url('../images/blog.gif') 0 0 no-repeat;
+	}
+	.mail{
+		background:url('../images/mail.gif') 0 0 no-repeat;
+	}
+	.load{
+		background:url('../images/load.gif') 0 0 no-repeat;
+	}
+	/* main标题部分 */
+	.tit span{
+		float:left;
+	}
+	.tit_left{
+		height:28px;
+		background:black;
+		font-weight:bold;
+		color:white;
+	}
+	/* ad部分 */
+	.ad{
+		font-weight:bold;
+		color:#f6f603;
+		float:left;
+	}
+	/* 性别选择内容样式 */
+	.boy_pic{
+		height:219px;
+		border:2px solid #bfb592;
+		border-radius:10px;
+		display:inline;
+		overflow:hidden;
+	}
+	.sex_con{
+		border-top:3px solid #802419;
+		border-bottom:2px solid #a69078;
+	}
+	/* 性别选框样式 */
+	.sex_con p{
+		width:32.74%;
+		height:37px;
+		background:url('../images/check.png') 0 0 no-repeat;
+		float:left;
+		background-size:100% 100%;
+		cursor:hand;
+		cursor:pointer;
+	}	
+	.sex .select{
+		background:url('../images/checked.png') 0 0 no-repeat;
+		background-size:100% 100%;
+	}
+	/* 底部样式 */
+	.survey li{
+		float:left;
+		border:2px solid #d3ccaf;
+		border-radius:10px;
+		font-weight:bold;
+		color:#615944;
+		cursor:hand;
+		cursor:pointer;
+	}
+	/* 最小481像素 */
+@media screen and (min-width: 481px){
+	body{
+		width:720px;
+		margin:0 auto;
+	}
+	.wrapper{
+		height:600px;
+	}
+	/* 头部样式 */
+	.header{
+		height:85px;
+		padding:20px 20px 0 0;
+	}
+	.nav{
+		width:27.08%;
+		padding-left:2.08%;
+		float:left;
+	}
+	.nav li{
+		width:14.35%;
+		margin-right:3.58%;
+	}
+	.logo{
+		width:11.80%;
+		height:46px;
+	}
+	/* 中间部分样式 */
+	.main{
+		width:100%;
+		height:360px;
+	}
+	/* 标题样式 */ 
+	.tit{
+		height:43px;
+		padding:10px 0 0 6.94%;
+	}
+	.tit_left{
+		width:2.36%;
+		font-size:18px;
+		margin-right:0.69%;
+	}
+	.tit_right{
+		font-size:18px;	
+		line-height:30px;
+	}
+	.ad{
+		width:62.5%;
+		height:60px;
+		font-size:2.5em;
+		line-height:60px;
+	}
+	/* 选角色性别区域样式 */
+	.sideleft{
+		width:46.94%;
+		float:left;
+	}
+	.sl_inf{
+		width:23.50%;
+		height:300px;
+		float:left;
+		font-size:0.8125em;
+	}
+	.sl_pic{
+		width:63.31%;
+		height:307px;
+		float:left;
+	}
+
+	.boy_pic{
+		width:100%;
+	}
+	.sideright{
+		width:46.94%;
+		float:right;
+	}
+	.sr_inf{
+		width:23.50%;
+		height:300px;
+		float:right;
+		font-size:0.8125em;
+	}
+	.sr_pic{
+		width:63.31%;
+		height:307px;
+		float:right;
+	}
+	.sex{
+		height:62px;
+		padding:4.67% 0 0 16.35%;
+	}
+	.sex_con{
+		width:67.03%;
+		height:47px;
+		padding:4.46% 0 0 16.75%;
+	}
+	.sex_con span{
+		font-size:1.625em;
+		font-weight:bold;
+		color:#802419;
+	}
+/* 底部样式 */
+	.survey{
+		padding:40px 0 0 60px;
+		height:54px;
+	}
+	.survey li{
+		width:140px;
+		height:50px;
+		margin-right:10px;
+		font-size:1.25em;
+		line-height:50px;
+	}
+}
+/* 最小322像素，最大480像素 */
+@media screen and (min-width: 322px) and (max-width : 480px){
+	.wrapper{
+		height:600px;
+	}
+	.header{
+		height:85px;
+		padding:4.31% 0 0 0;
+	}
+	.nav{
+		width:42.11%;
+		padding-left:7.69%;
+		float:left;
+	}
+	.nav li{
+		width:14.35%;
+		margin-right:3.58%;
+		background-size:100% 100%;
+	}
+	.logo{
+		width:18.35%;
+		height:46px;
+	}
+	/* 中间部分样式 */
+	.main{
+		height:360px;
+	}
+	/* 标题样式 */ 
+	.tit{
+		height:43px;
+		padding:0 0 0 10px;
+	}
+	.tit_left{
+		width:3.67%;
+		font-size:1.125em;
+		margin-right:1.07%;
+	}
+	.tit_right{
+		
+		font-size:1.125em;	
+		line-height:30px;
+	}
+	.ad{
+		height:30px;
+		font-size:1.375em;
+		line-height:30px;
+	}
+	/* 选角色性别区域样式 */
+	.sideleft{
+		width:46.22%;
+		float:left;
+		clear:left;
+	}
+	.sl_inf,.sr_inf{
+		display:none;
+	}
+	.sl_pic{
+		width:100%;
+		height:307px;
+		float:left;
+	}
+	.boy_pic{
+		width:100%;
+	}
+	.sideright{
+		width:46.22%;
+		float:right;
+	}
+	.sr_pic{
+		width:100%;
+		height:307px;
+		float:left;
+	}
+	.sex{
+		height:82px;
+		padding:4.67% 0 0 16.35%;
+	}
+	.sex_con{
+		width:56.07%;
+		height:47px;
+		padding:3.73% 0 0 14.01%;
+	}
+	.sex_con span{
+		font-size:1.625em;
+		font-weight:bold;
+		color:#802419;
+	}
+	
+	/* 底部样式 */
+	.survey{
+		height:130px;
+		padding:0 0 0 10.79%;
+	}
+	.survey li{
+		width:30.23%;
+		height:50px;
+		margin:2.15% 12.95% 0 0;
+		font-size:1.25em;
+		line-height:50px;
+	}
+}
+/* 最大321像素 */
+@media screen and (max-width : 321px){
+	.wrapper{
+		height:800px;
+		background-size:100% 100%;
+	}
+	.header{
+		height:85px;
+		padding:3.28% 0 0 5.59%;
+	}
+	.nav{
+		padding-left:13.15%;
+	}
+	.nav li{
+		width:13.93%;
+		border-radius:14px;
+		margin-right:6.4%;
+		background-size:100% 100%;
+	}
+	.logo{
+		display:none;
+	}
+	/* 中间部分样式 */
+	.main{
+		overflow:hidden;
+	}
+	/* 标题样式 */ 
+	.tit{
+		height:43px;
+		padding:0 0 0 3.28%;
+	}
+	.tit_left{
+		width:3.67%;
+		font-size:1.125em;
+		margin-right:1.07%;
+	}
+	.tit_right{
+		font-size:1.125em;	
+		line-height:30px;
+	}
+	.ad{
+		width:100%;
+		height:50px;
+		font-size:18px;
+		line-height:50px;
+		text-align:center;
+	}
+	/* 选角色性别区域样式 */
+	.sideleft{
+		width:100%;
+		-webkit-animation:animations1 6s linear infinite;
+	}
+	.sl_inf,.sr_inf{
+		display:none;
+	}
+	.sl_pic{
+		width:100%;
+		height:250px;
+	}
+	.boy_pic{
+		width:70%;
+		float:left;
+	}
+	.sideright{
+		width:100%;
+	}
+	.sr_pic{
+		width:100%;
+		height:250px;
+	}
+	.sex{
+		width:25%;
+		height:60px;
+		padding:60px 0 0 0;
+		float:right;
+	}
+	.sex_con{
+		width:100%;
+		height:47px;
+		padding:3.73% 0 0 0;
+	}
+	.sex_con span{
+		font-size:1.625em;
+		font-weight:bold;
+		color:#802419;
+	}
+	
+	/* 底部样式 */
+	.survey{
+		height:130px;
+		padding:0 0 0 10.79%;
+	}
+	.survey li{
+		width:11.44%;
+		height:115px;
+		margin-right:10.5%;
+		font-size:1.25em;
+	}
+}

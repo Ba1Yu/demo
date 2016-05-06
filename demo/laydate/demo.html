@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layDate Demo</title>
+<script src="laydate/laydate.js"></script>
+<style>
+html{background-color:#E3E3E3; font-size:14px; color:#000; font-family:'微软雅黑'}
+h2{line-height:30px; font-size:20px;}
+a,a:hover{ text-decoration:none;}
+pre{font-family:'微软雅黑'}
+.box{width:970px; padding:10px 20px; background-color:#fff; margin:10px auto;}
+.box a{padding-right:20px;}
+</style>
+</head>
+<body>
+<div class="box">
+    <div style="width:970px; margin:10px auto;">
+        演示一：<input placeholder="请输入日期" class="laydate-icon" onclick="laydate()">
+        演示二：<input class="laydate-icon" id="demo" value="6666-6-6 Rain66">
+    </div>
+    <pre>
+     @Name：laydate-v<script>document.write(laydate.v)</script> 日期控件说明
+     @官网：<a href="http://sentsin.com/layui/laydate"  target="_blank">http://sentsin.com/layui/laydate</a><br>
+    <strong>【注意事项】</strong>
+        一、请千万勿移动laydate中的目录结构，它们具有完整的依赖体系。使用时，只需引入laydate/laydate.js即可。
+        二、如果您的网站的js采用合并或模块加载，您需要打开laydate.js，修改path。
+        三、laydate遵循LGPL开源协议，永不收费！
+    </pre>
+</div>
+<script>
+;!function() {
+    laydate({
+        elem: '#demo', //需显示日期的元素选择器
+        event: 'click', //触发事件
+        format: 'YYYY-MM-DD hh:mm:ss', //日期格式
+        istime: true, //是否开启时间选择
+        isclear: true, //是否显示清空
+        istoday: true, //是否显示今天
+        issure: true, //是否显示确认
+        festival: true, //是否显示节日
+        min: '1900-01-01 00:00:00', //最小日期:laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+        max: '2099-12-31 23:59:59', //最大日期:laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+        start: '2016-06-06 06:06:06', //开始日期,为空的话默认是当前日期
+        fixed: false, //是否固定在可视区域
+        zIndex: 99999999, //css z-index
+        choose: function(dates) { //选择好日期的回调
+            console.log(dates);
+        }
+    });
+   // laydate.skin('yahui');
+}();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>audio</title>
+	<link rel="stylesheet" href="css/music.css">
+</head>
+<body>
+	<div class="bckimg1 bckimg"></div>
+	<div class="bckimg2 bckimg"></div>
+	<div class="bckimg3 bckimg"></div>
+	<div class="bckimg4 bckimg"></div>
+	<div class='music' id='music'>
+		<div class='warpper'>
+			<ul class='tit' id='tit'>
+				<li>追梦赤子</li>
+				<li>歌曲名称</li>
+				<li>歌曲名称</li>
+				<li>歌曲名称</li>
+				<li>歌曲名称</li>
+			</ul>
+			<div class='con'>
+				<audio id='audioMusic' src='sourse/zf.ogg'></audio>
+				<div class='btn'>
+					<div class="progress_box">
+					    <div id='progress' class="progress"></div>
+					</div>
+					<div id='audioBtn' class='audio_btn play'></div>
+				</div>
+				<div class='music_inf'>
+					<dl>
+						<dt><img id='audioPic' src="" alt=""></dt>
+						<dd><h1 id='audioTit'></h1></dd>
+						<dd><p id='audioInf'></p></dd>
+					</dl>
+				</div>
+				<div class='music_lrc' id='music_lrc'>
+					<div id='audiolrc'>
+						<p id='audioLrc'>让你拥有更好的明天为你花上一张笑脸</p>
+					</div>
+				</div>
+				<div class="scroll" id='scrollRange'>
+					<div id='scrollBar'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src='js/music.js'></script>
+</html>

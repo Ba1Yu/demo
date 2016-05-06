@@ -1,0 +1,55 @@
+
+<!doctype html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax-json版Tab</title>
+		<link rel="stylesheet" href="reset.css">
+		<style>
+			.main{height: 400px;width: 800px;margin: 50px auto; border: 1px solid #000;}
+			.list{height: 400px;width: 200px;float: left;background: #ddd;}
+			.con{height: 400px;width: 600px;float: right;background: #ccc;text-align: center;font-size: 20px;}
+			.list li{width: 200px;text-align: center;margin: 50px 0 0;font-size: 24px;cursor: hand;cursor: pointer;}
+			.con img{width: 500px;height: 280px;margin: 15px auto;}
+			.con p{width: 320px;height: 60px;line-height: 30px;margin: 20px auto 0;}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="list" id="list">
+				<ul>
+					<li>spring</li>
+					<li>summer</li>
+					<li>fall</li>
+					<li>winter</li>
+				</ul>
+			</div>
+			<div class="con" id="con">
+				
+			</div>
+		</div>
+	</body>
+	<script>
+		var con = document.getElementById('con');
+		var lis = document.getElementById('list').getElementsByTagName('li');
+		(function(){
+			var xhr = new XMLHttpRequest();
+			var url = 'a.json';
+			xhr.open('get',url,true);
+			xhr.send(null);		
+			xhr.onload = function (){
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].onclick = function(i) {
+						return function  () {
+							con.innerHTML = '加载中...';
+							setTimeout(function(){
+								var backData = JSON.parse(xhr.responseText);
+								con.innerHTML = "<p>" + backData[i].dis + "</p>" + "<img src = 'images/" + backData[i].pic + "'/>";
+							},1000);
+						}												
+					}(i);
+				}
+			}
+		})();
+	</script>
+</html>

@@ -1,0 +1,142 @@
+@charset 'utf-8';
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: url(../images/star.jpg) 0 0 repeat;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	-o-perspective: 800px;
+}
+.box{
+	width: 900px;
+	height: 400px;
+	margin: 0 auto;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-webkit-box-reflect: below -150px -webkit-linear-gradient(top,rgba(0,0,0,0) 20%,rgba(0,0,0,0.6));
+}
+.con{
+	position: relative;
+	float: left;
+	margin: 50px 40px;
+	width: 200px;
+	height: 200px;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-webkit-transition: all 2s ease 0;
+	-moz-transition: all 2s ease 0;
+	-ms-transition: all 2s ease 0;
+	-o-transition: all 2s ease 0;
+}
+.con p{
+	position: absolute;
+	width: 200px;
+	font-size: 30px;
+	color: rgba(255,255,255,1.0);
+	text-shadow:0px 0px 5px rgba(255,0,255,0.8),0px 0px 10px rgba(255,0,255,0.8),0px 0px 20px rgba(255,0,255,0.8),0px 0px 35px rgba(255,0,255,0.8),0px 0px 55px rgba(255,0,255,0.8);
+	text-align: center;
+	line-height: 200px;
+	box-shadow: inset 0px 0px 5px 5px rgba(255,255,255,0.4);
+	background: rgba(255,255,255,0.2);
+}
+#con_hour{
+	-webkit-animation: hour 1s infinite;
+	-moz-animation: hour 1s infinite;
+	-ms-animation: hour 1s infinite;
+	-o-animation: hour 1s infinite;
+}
+#con_min{
+	-webkit-animation:minutes 1s infinite;
+	-moz-animation:minutes 1s infinite;
+	-ms-animation:minutes 1s infinite;
+	-o-animation:minutes 1s infinite;
+}
+#con_sec{
+	-webkit-animation:seconds 1s infinite;
+	-moz-animation:seconds 1s infinite;
+	-ms-animation:seconds 1s infinite;
+	-o-animation:seconds 1s infinite;
+}
+/* 控制显示小时的立体块选择 */
+@-webkit-keyframes hour {
+	100%{-webkit-transform: rotateX(90deg);}
+}
+@-moz-keyframes hour {
+	100%{-moz-transform: rotateX(90deg);}
+}
+@-ms-keyframes hour {
+	100%{-ms-transform: rotateX(90deg);}
+}
+@-o-keyframes hour {
+	100%{-o-transform: rotateX(90deg);}
+}
+/* 控制显示分钟数的立体块旋转 */
+@-webkit-keyframes minutes {
+	100%{-webkit-transform: rotateY(90deg);}
+}
+@-moz-keyframes minutes {
+	100%{-moz-transform: rotateY(90deg);}
+}
+@-ms-keyframes minutes {
+	100%{-ms-transform: rotateY(90deg);}
+}
+@-o-keyframes minutes {
+	100%{-o-transform: rotateY(90deg);}
+}
+/* 控制显示秒数的立体块旋转 */
+@-webkit-keyframes seconds {
+	100%{-webkit-transform: rotateX(90deg);}
+}
+@-moz-keyframes seconds {
+	100%{-moz-transform: rotateX(90deg);}
+}
+@-ms-keyframes seconds {
+	100%{-ms-transform: rotateX(90deg);}
+}
+@-o-keyframes seconds {
+	100%{-o-transform: rotateX(90deg);}
+}
+/* 对p标签做旋转、位置处理 */
+.font{
+	-webkit-transform: rotateX(0deg) translateZ(100px);
+	-moz-transform: rotateX(0deg) translateZ(100px);
+-ms-transform: rotateX(0deg) translateZ(100px);
+	-o-transform: rotateX(0deg) translateZ(100px);
+}
+.after{
+	-webkit-transform: rotateY(180deg) translateZ(100px);
+	-moz-transform: rotateY(180deg) translateZ(100px);
+	-ms-transform: rotateY(180deg) translateZ(100px);
+	-o-transform: rotateY(180deg) translateZ(100px);
+}
+.left{
+	-webkit-transform: rotateY(270deg) translateZ(100px);
+	-moz-transform: rotateY(270deg) translateZ(100px);
+-ms-transform: rotateY(270deg) translateZ(100px);
+	-o-transform: rotateY(270deg) translateZ(100px);
+}
+.right{
+	-webkit-transform: rotateY(90deg) translateZ(100px);
+	-moz-transform: rotateY(90deg) translateZ(100px);
+	-ms-transform: rotateY(90deg) translateZ(100px);
+	-o-transform: rotateY(90deg) translateZ(100px);
+}
+.bottom{
+	-webkit-transform: rotateX(90deg) translateZ(100px);
+	-moz-transform: rotateX(90deg) translateZ(100px);
+	-ms-transform: rotateX(90deg) translateZ(100px);
+	-o-transform: rotateX(90deg) translateZ(100px);
+}
+.top{
+	-webkit-transform: rotateX(270deg) translateZ(100px);
+	-moz-transform: rotateX(270deg) translateZ(100px);
+	-ms-transform: rotateX(270deg) translateZ(100px);
+	-o-transform: rotateX(270deg) translateZ(100px);
+}

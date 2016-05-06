@@ -1,0 +1,9 @@
+$(function(){
+	$('.sexchec').click(function(){
+		console.log($('.sexchec').index(this));
+		//为是当前点击的对象添加select
+		$('.sexchec').eq($('.sexchec').index(this)).addClass('select');
+		//为不是当前点击的对象添加select
+		$('.sexchec').eq(!$('.sexchec').index(this)).removeClass('select');
+	})
+})

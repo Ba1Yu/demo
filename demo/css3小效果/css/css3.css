@@ -1,0 +1,50 @@
+@charset 'utf-8';
+/* css3效果样式 */
+body{
+	width:100%;
+	height:100%;
+	background: #ffffff; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #ffffff 24%, #43576f 52%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(24%,#ffffff), color-stop(52%,#43576f), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 24%,#43576f 52%,#000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #ffffff 24%,#43576f 52%,#000000 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #ffffff 24%,#43576f 52%,#000000 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #ffffff 24%,#43576f 52%,#000000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.turn{
+	margin:20px auto;
+	width:500px;
+	height:300px;
+	background:url('../images/龙珠1.png') 0 0  no-repeat;
+	background-size:100% 100%;
+	border-radius:10px;
+	overflow: hidden;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	-ms-border-radius:10px;
+	-webkit-box-reflect: below 10px -webkit-radial-gradient(center ,rgba(0,0,0,1) 0,rgba(255,255,255,0) 60%);
+	-moz-box-reflect: below 10px -moz-radial-gradient(center ,rgba(0,0,0,1) 0,rgba(255,255,255,0) 60%);
+	-o-box-reflect: below 10px -o-radial-gradient(center ,rgba(0,0,0,1) 0,rgba(255,255,255,0) 60%);
+	-ms-box-reflect: below 10px -ms-radial-gradient(center ,rgba(0,0,0,1) 0,rgba(255,255,255,0) 60%);
+	box-reflect: below 10px radial-gradient(center ,rgba(0,0,0,1) 0,rgba(255,255,255,0) 60%);
+}
+img{
+	width:500px;
+	height:300px;
+	-webkit-mask-image:url('../images/01.png');
+	-webkit-mask-repeat:no-repeat;
+	-webkit-mask-position:20px 20px;
+	-moz-mask-image:url('../images/01.png');
+	-moz-mask-repeat:no-repeat;
+	-moz-mask-position:20px 20px;
+	-ms-mask-image:url('../images/01.png');
+	-ms-mask-repeat:no-repeat;
+	-ms-mask-position:20px 20px;
+	-o-mask-image:url('../images/01.png');
+	-o-mask-repeat:no-repeat;
+	-o-mask-position:20px 20px;
+	mask-image:url('../images/01.png');
+	mask-repeat:no-repeat;
+	mask-position:20px 20px;
+}

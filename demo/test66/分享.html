@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>(●—●)</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="http://css.letvcdn.com/lc02_css/201511/23/10/22/letv/ugc.css">
+	<link rel="stylesheet" href="http://css.letvcdn.com/lc02_css/201512/23/11/48/letv/top.css">
+	<script type="text/javascript" src="js/share.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<style type="text/css">
+		.bdsharebuttonbox{
+			margin: 200px 800px;
+		}
+	</style>
+</head>
+<body>
+<div class="user_uploadbox" data-tag='demo'>
+    <dl class="user_vtemp_list" videoid="24245924">
+        <dt>
+            <a href="http://www.letv.com/ptv/vplay/24245924.html" title="Wildlife" target="_blank"><img src=" http://i1.letvimg.com/lc03_yunzhuanma/201512/21/16/11/1c35886a561dbd3c968e7050bae538bd_39927885/thumb/2_180_135.jpg"></a>
+            <div class="vtime_box">00:30</div>
+        </dt>
+        <dd class="vtit_time">
+            <a href="http://www.letv.com/ptv/vplay/24245924.html" class="vtit_time_tit" title="Wildlife " target="_blank">Wildlife1</a>
+            <p>上传时间：2015-12-21 16:09</p>
+        </dd>
+        <dd class="vtemp_state">
+            <span class="ugc_upload_mlist_icon succeed"></span>
+            <span>状态：发布成功</span>                </dd>
+        <dd class="vtemp_btnbox">
+            <a href="javascript:;" class="cancel_upload_btn "></a>
+            <div class="vtemp_share_main">
+                <span class="share_text">分享到：</span>
+                <div class="share_list">
+                    <a href="javascript:;" class="qq qq_binding" share-type="qq"></a>
+                    <a href="javascript:;" class="weibo_xl weibo_xl_binding" share-type="sina"></a>
+                    <a href="javascript:;" class="qzone qzone_binding" share-type="qzone"></a>
+                    <a href="javascript:;" class="weixin weixin_binding" share-type="weixin"></a>
+                </div>
+            </div>
+        </dd>
+    </dl>
+    <dl class="user_vtemp_list" videoid="24245926">
+        <dt>
+            <a href="http://www.letv.com/ptv/vplay/24245924.html" title="Wildlife" target="_blank"><img src=" http://i1.letvimg.com/lc03_yunzhuanma/201512/21/16/11/1c35886a561dbd3c968e7050bae538bd_39927885/thumb/2_180_135.jpg"></a>
+            <div class="vtime_box">00:30</div>
+        </dt>
+        <dd class="vtit_time">
+            <a href="http://www.letv.com/ptv/vplay/24245924.html" class="vtit_time_tit" title="Wildlife " target="_blank">Wildlife2</a>
+            <p>上传时间：2015-12-21 16:09</p>
+        </dd>
+        <dd class="vtemp_state">
+            <span class="ugc_upload_mlist_icon succeed"></span>
+            <span>状态：发布成功</span>                </dd>
+        <dd class="vtemp_btnbox">
+            <a href="javascript:;" class="cancel_upload_btn "></a>
+            <div class="vtemp_share_main">
+                <span class="share_text">分享到：</span>
+                <div class="share_list">
+                    <a href="javascript:;" class="qq qq_binding" share-type="qq"></a>
+                    <a href="javascript:;" class="weibo_xl weibo_xl_binding" share-type="sina"></a>
+                    <a href="javascript:;" class="qzone qzone_binding" share-type="qzone"></a>
+                    <a href="javascript:;" class="weixin weixin_binding" share-type="weixin"></a>
+                </div>
+            </div>
+        </dd>
+    </dl>
+    <dl class="user_vtemp_list" videoid="24245928">
+        <dt>
+            <a href="http://www.letv.com/ptv/vplay/24245924.html" title="Wildlife" target="_blank"><img src=" http://i1.letvimg.com/lc03_yunzhuanma/201512/21/16/11/1c35886a561dbd3c968e7050bae538bd_39927885/thumb/2_180_135.jpg"></a>
+            <div class="vtime_box">00:30</div>
+        </dt>
+        <dd class="vtit_time">
+            <a href="http://www.letv.com/ptv/vplay/24245924.html" class="vtit_time_tit" title="Wildlife " target="_blank">Wildlife3</a>
+            <p>上传时间：2015-12-21 16:09</p>
+        </dd>
+        <dd class="vtemp_state">
+            <span class="ugc_upload_mlist_icon succeed"></span>
+            <span>状态：发布成功</span>                </dd>
+        <dd class="vtemp_btnbox">
+            <a href="javascript:;" class="cancel_upload_btn "></a>
+            <div class="vtemp_share_main">
+                <span class="share_text">分享到：</span>
+                <div class="share_list">
+                    <a href="javascript:;" class="qq qq_binding" share-type="qq"></a>
+                    <a href="javascript:;" class="weibo_xl weibo_xl_binding" share-type="sina"></a>
+                    <a href="javascript:;" class="qzone qzone_binding" share-type="qzone"></a>
+                    <a href="javascript:;" class="weixin weixin_binding" share-type="weixin"></a>
+                </div>
+            </div>
+        </dd>
+    </dl>
+</div>
+</body>
+<script>
+var shareTitle = '',
+    shareDesc = '',
+    shareUrl = '',
+    sharePic = '';
+$(".share_list a").on('mouseenter', function() {
+    var self = $(this);
+    shareTitle = self.parents(".user_vtemp_list").find('.vtit_time a').text();
+    shareDesc = '世界那么大，你确定不来看看么？';
+    shareUrl = self.parents(".user_vtemp_list").find('dt a').attr("href");
+    sharePic = self.parents(".user_vtemp_list").find("img").attr("src");
+});
+//分享
+getShare().then(function(share) {
+	var myShare = share();
+	myShare.add({
+		delegateEl: 'demo',
+		onBeforeClick: function(el, config, qrcode) {
+            config.title = "我在乐视网看了【" + shareTitle + "】 - 在线观看 - 乐视网 ，推荐！" + shareUrl;
+            config.desc = shareDesc;
+            config.url = shareUrl;
+            config.pic = sharePic;
+            if (qrcode) {
+                var qrcodeTpl = qrcode({
+                    text: shareUrl
+                });
+                // 二维码插入页面
+                $('body').append(qrcodeTpl);
+            }
+            return config;
+		}
+	});
+});
+</script>
+</html>
