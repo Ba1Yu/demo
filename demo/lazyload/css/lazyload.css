@@ -1,0 +1,17 @@
+.content p {
+    height: 300px;
+    margin-top: 10px;
+    background: #F1F1F1;
+}
+.content img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/defaultImage.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.noImgMode.content img {
+    background-image: url(../images/click_load.png) !important;
+    background-size: auto 81px;
+}
